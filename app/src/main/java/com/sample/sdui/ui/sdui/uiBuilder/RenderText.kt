@@ -1,6 +1,5 @@
 package com.sample.sdui.ui.sdui.uiBuilder
 
-import android.util.Log
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.material3.Text
@@ -9,7 +8,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.text.TextStyle
@@ -26,6 +24,7 @@ import com.sample.sdui.ui.sdui.property.buildCombinedModifier
 import com.sample.sdui.ui.sdui.property.parseColorSafe
 import com.sample.sdui.ui.sdui.wrapper.AnimatedVisibilityWrapper
 import org.json.JSONObject
+import timber.log.Timber
 
 @Composable
 fun RenderText(
@@ -119,7 +118,7 @@ fun RenderText(
                     old
                 }
 
-                Log.d("stateeeeeeee:", "${vm.jsonState[logId] as JSONObject}")
+                Timber.d("stateeeeeeee: ${vm.jsonState[logId] as JSONObject}")
 
             }
         )

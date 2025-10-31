@@ -1,7 +1,6 @@
 package com.sample.sdui.ui.sdui.property
 
 import android.annotation.SuppressLint
-import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -17,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.sample.sdui.ui.sdui.uiBuilder.OnAction
 import org.json.JSONObject
+import timber.log.Timber
 
 @SuppressLint("ModifierFactoryExtensionFunction")
 internal fun buildBaseModifier(json: JSONObject, onAction: OnAction? = null): Modifier {
@@ -43,7 +43,7 @@ internal fun buildBaseModifier(json: JSONObject, onAction: OnAction? = null): Mo
             val logId = json.optString("log_id")
             val actionId = action.optString("action_id")
             val url = action.optString("url")
-            Log.i("Action triggered:", "logId=$logId, actionId=$actionId url=$url")
+            Timber.i("Action triggered: logId=$logId, actionId=$actionId url=$url")
             onAction?.invoke(logId, actionId, url)
         }
     }

@@ -1,13 +1,11 @@
 package com.sample.sdui
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -22,6 +20,7 @@ import com.sample.sdui.ui.sdui.property.readJsonObjectFromAssets
 import com.sample.sdui.ui.sdui.uiBuilder.DynamicJsonUI
 import com.sample.sdui.ui.theme.SDUITheme
 import org.json.JSONObject
+import timber.log.Timber
 
 class MainActivity : ComponentActivity() {
     private val viewModel = MainViewModel()
@@ -43,7 +42,7 @@ class MainActivity : ComponentActivity() {
                             CircularProgressIndicator()
                         }
                     } else {
-                        Log.d("viewmoddslfldfld:", "${viewModel.jsonState["component20"]}")
+                        Timber.d("viewmoddssssssss: ${viewModel.jsonState["component20"]}")
                         DynamicJsonUI(jsonFile, viewModel) { logId, actionId, url ->
                             when {
                                 url == "div-screen://close" -> {
